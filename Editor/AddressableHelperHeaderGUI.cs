@@ -1,3 +1,10 @@
+# Author: leonlyd
+# Contact: [leonliuyd@outlook.com]
+# Created: 2024-01-09
+# Last Modified: 2024-01-10
+# Description: Unity3Dçš„Addresableï¼Œæ˜“ç”¨æ€§åŠŸèƒ½å¢åŠ ä»£ç ï¼Œæ­¤ä»£ç ä¸ºInspectorçš„é¢å¤–æ˜¾ç¤ºï¼Œä¸ºåŠŸèƒ½çš„ä¸»è¦å…¥å£ï¼Œæä¾›Groupæ˜¾ç¤ºï¼ŒLabelæ˜¾ç¤ºå’Œå¢å‡ã€‚
+# Description in English by AI :Enhancements to the usability features of Unity3D's Addressables, this code serves as an additional display in the Inspector, acting as the main entry point for the functionality. It provides display, addition, and removal of Groups and Labels.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -182,15 +189,15 @@ public static class AddressableHelperHeaderGUI
 
     //private static AddressableAssetEntry GetAddressableAsset(UnityEngine.Object obj)
     //{
-    //    // ¼ì²é¶ÔÏóÊÇ·ñÊÇAddressable×ÊÔ´
+    //    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Addressableï¿½ï¿½Ô´
     //    string assetPath = AssetDatabase.GetAssetPath(obj);
     //    if (string.IsNullOrEmpty(assetPath) == true)
     //        return null;
-    //    // »ñÈ¡µ±Ç°ÏîÄ¿µÄ Addressable ×ÊÔ´ÉèÖÃ
+    //    // ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½Ä¿ï¿½ï¿½ Addressable ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½
     //    AddressableAssetSettings settings = AddressableAssetSettingsDefaultObject.Settings;
     //    string guid;
     //    long localID;
-    //    // Ê¹ÓÃ FindAssetEntry ·½·¨²éÕÒ×ÊÔ´ÌõÄ¿
+    //    // Ê¹ï¿½ï¿½ FindAssetEntry ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Ä¿
     //    if (AssetDatabase.TryGetGUIDAndLocalFileIdentifier(obj, out guid, out localID) == false)
     //        return null;
     //    AddressableAssetEntry entry = settings.FindAssetEntry(guid);

@@ -1,3 +1,10 @@
+# Author: leonlyd
+# Contact: [leonliuyd@outlook.com]
+# Created: 2024-01-09
+# Last Modified: 2024-01-10
+# Description: Unity3Dçš„Addresableï¼Œæ˜“ç”¨æ€§åŠŸèƒ½å¢žåŠ ä»£ç ï¼Œæ­¤ä»£ç ä¸ºå…¶ä»–ä¸€ä¸ªè„šæœ¬çš„è¾…åŠ©ç±»ï¼Œç”¨äºŽæ‰“å¼€ä¸€ä¸ªçª—å£é€‰æ‹©è¦è¢«æ›´æ”¹ä¸ºçš„Groupã€‚
+# Description in English by AI: Code enhancing the usability features of Unity3D's Addressables. This script acts as a helper class for another script, used for opening a window to select the Group to be changed.
+
 using UnityEditor;
 using UnityEditor.AddressableAssets.Settings;
 using System;
@@ -37,11 +44,11 @@ public class AddresableGroupSelectWindow : EditorWindow
 
         foreach (var group in groups)
         {
-            // ¼ÆËãÃ¿¸ö group ÖÐ´«ÈëµÄ entries ÓÐ¶àÉÙ¸öÊôÓÚÕâ¸ö group
+            // ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ group ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ entries ï¿½Ð¶ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ group
             groupEntryCounts[group] = entries.Count(e => e.parentGroup == group);
         }
 
-        // ¼ì²éÊÇ·ñËùÓÐÌõÄ¿¶¼ÊôÓÚÍ¬Ò»¸ögroup
+        // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½group
         if (entries.Length > 0 && entries.All(e => e.parentGroup == entries[0].parentGroup))
         {
             selectedGroupIndex = Array.IndexOf(groups, entries[0].parentGroup);
@@ -52,10 +59,10 @@ public class AddresableGroupSelectWindow : EditorWindow
     {
         GUILayout.Label("Select Addressable Group", EditorStyles.boldLabel);
 
-        // ¿ªÊ¼¹ö¶¯ÊÓÍ¼
+        // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
         scrollPosition = GUILayout.BeginScrollView(scrollPosition);
 
-        // Ê¹ÓÃtextFieldÑùÊ½´´½¨Ò»¸ö°üº¬¿ò
+        // Ê¹ï¿½ï¿½textFieldï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         GUILayout.BeginVertical(GUI.skin.textField);
 
         foreach (var group in groups)
@@ -86,7 +93,7 @@ public class AddresableGroupSelectWindow : EditorWindow
             }
         }
 
-        // ½áÊø°üº¬¿òºÍ¹ö¶¯ÊÓÍ¼
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¹ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
         GUILayout.EndVertical();
         GUILayout.EndScrollView();
 
