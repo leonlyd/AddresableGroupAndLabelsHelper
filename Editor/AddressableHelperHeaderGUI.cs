@@ -1,9 +1,9 @@
-# Author: leonlyd
-# Contact: [leonliuyd@outlook.com]
-# Created: 2024-01-09
-# Last Modified: 2024-01-10
-# Description: Unity3D的Addresable，易用性功能增加代码，此代码为Inspector的额外显示，为功能的主要入口，提供Group显示，Label显示和增减。
-# Description in English by AI :Enhancements to the usability features of Unity3D's Addressables, this code serves as an additional display in the Inspector, acting as the main entry point for the functionality. It provides display, addition, and removal of Groups and Labels.
+// Author: leonlyd
+// Contact: [leonliuyd@outlook.com]
+// Created: 2024-01-09
+// Last Modified: 2024-01-10
+// Description: Unity3D的Addresable，易用性功能增加代码，此代码为Inspector的额外显示，为功能的主要入口，提供Group显示，Label显示和增减。
+// Description in English by AI :Enhancements to the usability features of Unity3D's Addressables, this code serves as an additional display in the Inspector, acting as the main entry point for the functionality. It provides display, addition, and removal of Groups and Labels.
 
 using System.Collections;
 using System.Collections.Generic;
