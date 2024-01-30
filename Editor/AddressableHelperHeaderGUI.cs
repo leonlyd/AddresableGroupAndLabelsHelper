@@ -33,10 +33,10 @@ public static class AddressableHelperHeaderGUI
         dicGUIDEntry = new Dictionary<String, AddressableAssetEntry>();
         dicOrignalLabelInfo = new Dictionary<string, int>();
         dicTargetLabelInfo = new Dictionary<string, int>();
-        Editor.finishedDefaultHeaderGUI += OnDefaultHeaderGUI;
-        Selection.selectionChanged += SelectionChanged;
+
         settings = AddressableAssetSettingsDefaultObject.Settings;
-        AddressableAssetSettingsDefaultObject.Settings.OnModification += (A, B, C) => SelectionChanged();
+
+        Editor.finishedDefaultHeaderGUI += OnDefaultHeaderGUI;
     }
     static string newLabelName;
     static AddressableAssetSettings settings;
@@ -45,6 +45,12 @@ public static class AddressableHelperHeaderGUI
     static Dictionary<string, int> dicTargetLabelInfo;
     static bool showGroup = true;
     static float fadeGroupValue;
+
+    static void BindAddresableSettings()
+    {
+        Selection.selectionChanged += SelectionChanged;
+        AddressableAssetSettingsDefaultObject.Settings.OnModification += (A, B, C) => SelectionChanged();
+    }
     static void SelectionChanged()
     {
         newLabelName = "";
@@ -84,6 +90,17 @@ public static class AddressableHelperHeaderGUI
     // Start is called before the first frame update
     private static void OnDefaultHeaderGUI(Editor editor)
     {
+        if (settings == null)
+        {
+            Debug.LogError("Can't Get Addresable Setting");
+            if (GUILayout.Button("No Addresable Settings , Click To Create", GUILayout.ExpandWidth(false)))
+            {
+                settings = AddressableAssetSettingsDefaultObject.GetSettings(true);
+                BindAddresableSettings();
+            }
+            return;
+        }
+
         if (dicGUIDEntry.Count == 0)
             return;
         if (editor.targets.Count() != dicGUIDEntry.Count)
