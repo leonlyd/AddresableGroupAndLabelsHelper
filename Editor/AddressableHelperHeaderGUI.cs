@@ -1,7 +1,7 @@
 // Author: leonlyd
 // Contact: [leonliuyd@outlook.com]
 // Created: 2024-01-09
-// Last Modified: 2024-01-10
+// Last Modified: 2024-02-06
 // Description: Unity3D的Addresable，易用性功能增加代码，此代码为Inspector的额外显示，为功能的主要入口，提供Group显示，Label显示和增减。
 // Description in English by AI :Enhancements to the usability features of Unity3D's Addressables, this code serves as an additional display in the Inspector, acting as the main entry point for the functionality. It provides display, addition, and removal of Groups and Labels.
 
@@ -37,6 +37,10 @@ public static class AddressableHelperHeaderGUI
         settings = AddressableAssetSettingsDefaultObject.Settings;
 
         Editor.finishedDefaultHeaderGUI += OnDefaultHeaderGUI;
+        Selection.selectionChanged += SelectionChanged;
+
+        if (settings != null)
+            BindAddresableSettings();
     }
     static string newLabelName;
     static AddressableAssetSettings settings;
@@ -48,11 +52,12 @@ public static class AddressableHelperHeaderGUI
 
     static void BindAddresableSettings()
     {
-        Selection.selectionChanged += SelectionChanged;
         AddressableAssetSettingsDefaultObject.Settings.OnModification += (A, B, C) => SelectionChanged();
     }
     static void SelectionChanged()
     {
+        if (settings == null)
+            return;
         newLabelName = "";
         fadeGroupValue = 1.0f;
         dicGUIDEntry.Clear();
@@ -203,21 +208,4 @@ public static class AddressableHelperHeaderGUI
         }
         EditorGUILayout.EndFadeGroup();
     }
-
-    //private static AddressableAssetEntry GetAddressableAsset(UnityEngine.Object obj)
-    //{
-    //    // �������Ƿ���Addressable��Դ
-    //    string assetPath = AssetDatabase.GetAssetPath(obj);
-    //    if (string.IsNullOrEmpty(assetPath) == true)
-    //        return null;
-    //    // ��ȡ��ǰ��Ŀ�� Addressable ��Դ����
-    //    AddressableAssetSettings settings = AddressableAssetSettingsDefaultObject.Settings;
-    //    string guid;
-    //    long localID;
-    //    // ʹ�� FindAssetEntry ����������Դ��Ŀ
-    //    if (AssetDatabase.TryGetGUIDAndLocalFileIdentifier(obj, out guid, out localID) == false)
-    //        return null;
-    //    AddressableAssetEntry entry = settings.FindAssetEntry(guid);
-    //    return entry;
-    //}
 }
